@@ -46,3 +46,5 @@ group :development do
   # gem "spring"
 end
 
+# Rubocop
+gem 'rubocop', '>= 1.0', '< 2.0'
