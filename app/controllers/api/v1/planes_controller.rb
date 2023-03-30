@@ -1,4 +1,3 @@
 class Api::V1::PlanesController < ApplicationController
-  def index
-  end
+  def index; end
 end
