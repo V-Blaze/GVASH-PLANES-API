@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   skip_before_action :authenticate_request, only: [:create]
-  before_action :set_user, only: [:show, :destroy]
+  before_action :set_user, only: %i[show destroy]
 
   def index; end
 
@@ -13,19 +13,19 @@ class UsersController < ApplicationController
 
     if @user.save
       token = jwt_encode(user_id: @user.id)
-      render json: { user: @user,token: token}, status: :created
+      render json: { user: @user, token: }, status: :created
     else
-      render json: { errors: @user.errors.full_messages}, status: :unprocessable_entity
+      render json: { errors: @user.errors.full_messages }, status: :unprocessable_entity
     end
   end
 
-
   private
-    def set_user
-      @user = User.find(params[:id])
-    end
 
-    def user_params
-      params.permit(:email,:name, :password)
-    end
+  def set_user
+    @user = User.find(params[:id])
+  end
+
+  def user_params
+    params.permit(:email, :name, :password)
+  end
 end

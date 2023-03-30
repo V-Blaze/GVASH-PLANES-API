@@ -1,6 +1,6 @@
 class User < ApplicationRecord
   has_many :reservations
-  require "securerandom"
+  require 'securerandom'
   has_secure_password
 
   validates :name, presence: true
