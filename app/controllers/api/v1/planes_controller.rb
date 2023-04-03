@@ -6,7 +6,7 @@ class Api::V1::PlanesController < ApplicationController
 
   private
 
-  def latest_planes(offset = 0, limit = 5)
+  def latest_planes(offset = 0, limit = nil)
     Plane.order(updated_at: :desc).offset(offset).limit(limit)
   end
 
