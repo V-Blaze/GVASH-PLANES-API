@@ -60,3 +60,5 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'jsonapi-serializer' # JSON API Serializer
 
 gem "factory_bot_rails"
+
+gem 'faker'
