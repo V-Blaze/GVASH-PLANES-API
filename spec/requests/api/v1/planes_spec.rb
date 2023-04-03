@@ -8,9 +8,8 @@ RSpec.describe 'Api::V1::Planes', type: :request do
     context 'when authenticated' do
       before do
         token = JWT.encode({ user_id: user.id }, Rails.application.secrets.secret_key_base, 'HS512')
-        headers = { "Authorization" => "Bearer #{token}" }
-        get "/api/v1/planes", headers: headers
-
+        headers = { 'Authorization' => "Bearer #{token}" }
+        get '/api/v1/planes', headers:
       end
 
       it 'returns a successful response' do
