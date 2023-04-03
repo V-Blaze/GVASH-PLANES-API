@@ -3,7 +3,7 @@ class CreatePlanes < ActiveRecord::Migration[7.0]
     create_table :planes do |t|
 
       t.string :name
-      t.string :type
+      t.string :plane_type
       t.text :description
       t.string :image
       t.integer :price
