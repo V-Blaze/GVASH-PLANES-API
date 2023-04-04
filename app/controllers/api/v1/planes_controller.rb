@@ -1,5 +1,4 @@
 class Api::V1::PlanesController < ApplicationController
-  # before_action :set_user, only: %i[create]
 
   def index
     @planes = latest_planes(plane_index_params[:offset], plane_index_params[:limit])
@@ -15,7 +14,7 @@ class Api::V1::PlanesController < ApplicationController
     if @plane.save
       render json: {plane: @plane, message: 'Plane created successfully' }, status: :created
     else
-      render json: { errors: @user.errors.full_messages }, status: :unprocessable_entity
+      render json: { errors: @plane.errors.full_messages }, status: :unprocessable_entity
     end
   end
 
