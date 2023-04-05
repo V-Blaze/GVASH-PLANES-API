@@ -102,3 +102,4 @@ planes.each do |plane|
 end
 
 puts "Done seeding database"
+
