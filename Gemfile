@@ -62,3 +62,5 @@ gem 'jsonapi-serializer' # JSON API Serializer
 gem 'factory_bot_rails'
 
 gem 'faker'
+
+gem 'dotenv-rails', '~> 2.1', '>= 2.1.1'
