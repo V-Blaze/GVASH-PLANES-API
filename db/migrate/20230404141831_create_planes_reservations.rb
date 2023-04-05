@@ -1,6 +1,6 @@
-class CreateReservations < ActiveRecord::Migration[7.0]
+class CreatePlanesReservations < ActiveRecord::Migration[7.0]
   def change
-    create_table :reservations do |t|
+    create_table :planes_reservations do |t|
       t.date :date
       t.time :duration
 

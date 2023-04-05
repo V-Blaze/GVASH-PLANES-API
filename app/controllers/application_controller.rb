@@ -16,4 +16,11 @@ class ApplicationController < ActionController::API
       render json: { errors: e.message }, status: :unauthorized
     end
   end
+
+  def check_admin
+    return if @current_user.admin?
+
+    render json: { error: "You don't have enough permission to complete this request" },
+           status: :unauthorized
+  end
 end
