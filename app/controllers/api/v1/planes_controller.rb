@@ -1,5 +1,5 @@
 class Api::V1::PlanesController < ApplicationController
-  before_action :check_admin, only: [:create, :destroy]
+  before_action :check_admin, only: %i[create destroy]
 
   def index
     @planes = latest_planes(plane_index_params[:offset], plane_index_params[:limit])
