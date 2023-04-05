@@ -3,12 +3,12 @@ require 'rails_helper'
 RSpec.describe PlaneReservation, type: :model do
   subject do
     PlaneReservation.new({
-                date: '20-05-2022',
-                duration: '10',
-                start_time: '11:30',
-                end_time: '12:30',
-                plane_id: '1'
-              })
+                           date: '20-05-2022',
+                           duration: '10',
+                           start_time: '11:30',
+                           end_time: '12:30',
+                           plane_id: '1'
+                         })
   end
 
   before { subject.save }
@@ -24,7 +24,7 @@ RSpec.describe PlaneReservation, type: :model do
   end
 
   it 'start_time should be present' do
-    subject.start_time= nil
+    subject.start_time = nil
     expect(subject).to_not be_valid
   end
 

@@ -8,7 +8,7 @@ RSpec.describe 'Api::V1::PlanesReservations', type: :request do
     context 'when authenticated' do
       before do
         headers = { 'Authorization' => "Bearer #{token(user)}" }
-        get '/api/v1/planes_reservations', headers: headers
+        get '/api/v1/planes_reservations', headers:
       end
 
       it 'returns a successful response' do
@@ -28,11 +28,20 @@ RSpec.describe 'Api::V1::PlanesReservations', type: :request do
   describe 'POST /api/v1/planes_reservations' do
     let(:user) { create(:user) }
     let(:plane) { create(:plane) }
-    let(:valid_params) { { planes_reservation: { date: Date.today, start_time: Time.now, end_time: Time.now + 2.hours, user_id: user.id, plane_id: plane.id } } }
-    let(:invalid_params) { { planes_reservation: { date: Date.today, start_time: Time.now, end_time: Time.now - 2.hours, user_id: user.id, plane_id: plane.id } } }
+    let(:valid_params) do
+      { planes_reservation: { date: Date.today, start_time: Time.now, end_time: Time.now + 2.hours, user_id: user.id,
+                              plane_id: plane.id } }
+    end
+    let(:invalid_params) do
+      { planes_reservation: { date: Date.today, start_time: Time.now, end_time: Time.now - 2.hours, user_id: user.id,
+                              plane_id: plane.id } }
+    end
 
     context 'when authenticated' do
-      before { post '/api/v1/planes_reservations', headers: { 'Authorization' => "Bearer #{token(user)}" }, params: valid_params }
+      before do
+        post '/api/v1/planes_reservations', headers: { 'Authorization' => "Bearer #{token(user)}" },
+                                            params: valid_params
+      end
 
       it 'creates a new plane reservation' do
         expect(response).to have_http_status(:created)
