@@ -1,5 +1,5 @@
 class Api::V1::PlanesController < ApplicationController
-  before_action :check_admin, only: [:create]
+  before_action :check_admin, only: [:create, :destroy]
 
   def index
     @planes = latest_planes(plane_index_params[:offset], plane_index_params[:limit])
@@ -12,6 +12,16 @@ class Api::V1::PlanesController < ApplicationController
 
     if @plane.save
       render json: { plane: @plane, message: 'Plane created successfully' }, status: :created
+    else
+      render json: { errors: @plane.errors.full_messages }, status: :unprocessable_entity
+    end
+  end
+
+  def destroy
+    @plane = Plane.find(params.permit(:id))
+
+    if @plane.destroy
+      render json: { message: 'Plane deleted successfully' }, status: :no_content
     else
       render json: { errors: @plane.errors.full_messages }, status: :unprocessable_entity
     end
