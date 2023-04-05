@@ -1,5 +1,5 @@
 class Plane < ApplicationRecord
-  has_and_belongs_to_many :reservations
+  has_many :plane_reservations, dependent: :destroy
   belongs_to :user
 
   validates :name, presence: true, length: { maximum: 100 }

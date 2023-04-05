@@ -14,6 +14,19 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_04_141831) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "plane_reservations", force: :cascade do |t|
+    t.date "date"
+    t.integer "duration"
+    t.time "start_time"
+    t.time "end_time"
+    t.bigint "user_id", null: false
+    t.bigint "plane_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["plane_id"], name: "index_plane_reservations_on_plane_id"
+    t.index ["user_id"], name: "index_plane_reservations_on_user_id"
+  end
+
   create_table "planes", force: :cascade do |t|
     t.string "name"
     t.string "plane_type"
@@ -30,17 +43,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_04_141831) do
     t.index ["user_id"], name: "index_planes_on_user_id"
   end
 
-  create_table "planes_reservations", force: :cascade do |t|
-    t.date "date"
-    t.time "duration"
-    t.bigint "user_id", null: false
-    t.bigint "plane_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["plane_id"], name: "index_planes_reservations_on_plane_id"
-    t.index ["user_id"], name: "index_planes_reservations_on_user_id"
-  end
-
   create_table "users", force: :cascade do |t|
     t.string "name"
     t.string "email"
@@ -49,7 +51,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_04_141831) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "plane_reservations", "planes"
+  add_foreign_key "plane_reservations", "users"
   add_foreign_key "planes", "users"
-  add_foreign_key "planes_reservations", "planes"
-  add_foreign_key "planes_reservations", "users"
 end
