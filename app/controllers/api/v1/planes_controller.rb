@@ -1,15 +1,12 @@
 class Api::V1::PlanesController < ApplicationController
+  before_action :check_admin, only: [:create]
+
   def index
     @planes = latest_planes(plane_index_params[:offset], plane_index_params[:limit])
     render json: PlaneSerializer.new(@planes).serializable_hash.to_json
   end
 
   def create
-    unless admin?
-      return render json: { error: "You don't have enough permission to create new plane" },
-                    status: :unprocessable_entity
-    end
-
     @plane = Plane.new(plane_params)
     @plane.user = @current_user
 
@@ -28,10 +25,6 @@ class Api::V1::PlanesController < ApplicationController
 
   def plane_index_params
     params.permit(:offset, :limit)
-  end
-
-  def admin?
-    @current_user.id == 1
   end
 
   def plane_params
