@@ -6,6 +6,11 @@ class Api::V1::PlanesController < ApplicationController
     render json: PlaneSerializer.new(@planes).serializable_hash.to_json
   end
 
+  def show
+    @plane = Plane.find(params[:id])
+    render json: PlaneSerializer.new(@plane).serializable_hash.to_json
+  end
+
   def create
     @plane = Plane.new(plane_params)
     @plane.user = @current_user
