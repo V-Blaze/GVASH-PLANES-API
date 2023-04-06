@@ -1,5 +1,12 @@
 class Api::V1::PlanesReservationsController < ApplicationController
-  def index; end
+  def index
+    reservations = PlaneReservation.where(user_id: @current_user.id).includes(:plane)
+    reservations = reservations.map do |reservation|
+      { reservation:, image_url: reservation.plane.image }
+    end
+
+    render json: reservations
+  end
 
   def create
     plane_reservation = @current_user.plane_reservations.build(plane_reservation_params)
