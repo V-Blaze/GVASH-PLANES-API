@@ -1,9 +1,16 @@
 class Api::V1::PlanesController < ApplicationController
-  before_action :check_admin, only: [:create]
+
+  before_action :check_admin, only: %i[create destroy]
   skip_before_action :authenticate_request, only: [:index]
+ 
   def index
     @planes = latest_planes(plane_index_params[:offset], plane_index_params[:limit])
     render json: PlaneSerializer.new(@planes).serializable_hash.to_json
+  end
+
+  def show
+    @plane = Plane.find(params[:id])
+    render json: PlaneSerializer.new(@plane).serializable_hash.to_json
   end
 
   def create
@@ -12,6 +19,16 @@ class Api::V1::PlanesController < ApplicationController
 
     if @plane.save
       render json: { plane: @plane, message: 'Plane created successfully' }, status: :created
+    else
+      render json: { errors: @plane.errors.full_messages }, status: :unprocessable_entity
+    end
+  end
+
+  def destroy
+    @plane = Plane.find(params.permit(:id))
+
+    if @plane.destroy
+      render json: { message: 'Plane deleted successfully' }, status: :no_content
     else
       render json: { errors: @plane.errors.full_messages }, status: :unprocessable_entity
     end
