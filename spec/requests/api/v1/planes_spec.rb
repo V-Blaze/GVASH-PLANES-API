@@ -123,4 +123,39 @@ RSpec.describe 'Api::V1::Planes', type: :request do
       end
     end
   end
+
+  describe 'DELETE /api/v1/planes' do
+    before do
+      @user = create(:user, id: 1) # Create a user with the ID of 1 as admin
+      @user2 = create(:user) # Normal user
+      @plane = create(:plane)
+    end
+
+    context 'when authenticated' do
+      let(:admin_headers) { { 'Authorization' => "Bearer #{token(@user)}" } }
+      let(:user_headers) { { 'Authorization' => "Bearer #{token(@user2)}" } }
+
+
+      it 'deletes a plan' do
+        delete "/api/v1/planes/#{@plane.id}", headers: admin_headers
+
+        expect(response).to have_http_status(:no_content)
+      end
+
+      it 'returns an error if Normal user tries to delete a plane' do
+        delete "/api/v1/planes/#{@plane.id}", headers: user_headers
+
+        expect(response).to have_http_status(:unauthorized)
+        expect(JSON.parse(response.body)).to include('error')
+      end
+    end
+
+    context 'when not authenticated' do
+      it 'does not deletes a plan' do
+        delete '/api/v1/planes/1'
+
+        expect(response).to have_http_status(:unauthorized)
+      end
+    end
+  end
 end
