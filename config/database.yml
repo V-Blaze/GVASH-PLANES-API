@@ -60,6 +60,8 @@ development:
 test:
   <<: *default
   database: GVASH_PLANES_API_test
+  username: sam
+  password: sam
 
 
 # As with config/credentials.yml, you never want to store sensitive information,
