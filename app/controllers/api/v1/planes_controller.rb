@@ -1,6 +1,6 @@
 class Api::V1::PlanesController < ApplicationController
   before_action :check_admin, only: %i[create destroy]
-  skip_before_action :authenticate_request, only: [:index] 
+  skip_before_action :authenticate_request, only: [:index]
   def index
     @planes = latest_planes(plane_index_params[:offset], plane_index_params[:limit])
     render json: PlaneSerializer.new(@planes).serializable_hash.to_json
