@@ -2,9 +2,7 @@ class Api::V1::PlanesReservationsController < ApplicationController
   def index
     reservations = PlaneReservation.where(user_id: @current_user.id).includes(:plane)
     reservations = reservations.map do |reservation|
-      plane = Plane.find(reservation.plane_id)
-
-    { reservation:, image_url: reservation.plane.image }
+      { reservation:, image_url: reservation.plane.image }
     end
 
     render json: reservations
