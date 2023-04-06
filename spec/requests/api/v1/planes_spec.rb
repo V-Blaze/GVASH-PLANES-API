@@ -135,7 +135,6 @@ RSpec.describe 'Api::V1::Planes', type: :request do
       let(:admin_headers) { { 'Authorization' => "Bearer #{token(@user)}" } }
       let(:user_headers) { { 'Authorization' => "Bearer #{token(@user2)}" } }
 
-
       it 'deletes a plan' do
         delete "/api/v1/planes/#{@plane.id}", headers: admin_headers
 
