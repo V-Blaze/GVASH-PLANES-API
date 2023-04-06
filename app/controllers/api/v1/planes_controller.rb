@@ -23,7 +23,7 @@ class Api::V1::PlanesController < ApplicationController
   end
 
   def destroy
-    @plane = Plane.find(params.permit(:id))
+    @plane = Plane.find(params[:id])
 
     if @plane.destroy
       render json: { message: 'Plane deleted successfully' }, status: :no_content
