@@ -24,7 +24,9 @@ default: &default
 development:
   <<: *default
   database: GVASH_PLANES_API_development
-
+  host: localhost
+  username: postgres
+  password: 1234
 
 
   # The specified database role being used to connect to postgres.
@@ -60,8 +62,9 @@ development:
 test:
   <<: *default
   database: GVASH_PLANES_API_test
-  username: sam
-  password: sam
+  host: localhost
+  username: postgres
+  password: 1234
 
 
 # As with config/credentials.yml, you never want to store sensitive information,
