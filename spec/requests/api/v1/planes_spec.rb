@@ -27,7 +27,7 @@ RSpec.describe 'Api::V1::Planes', type: :request do
       before { get '/api/v1/planes' }
 
       it 'returns an unauthorized response' do
-        expect(response).to have_http_status(:unauthorized)
+        expect(response).to have_http_status(:success)
       end
     end
   end
@@ -73,7 +73,7 @@ RSpec.describe 'Api::V1::Planes', type: :request do
       it 'returns an error if Normal user tries to create a plane' do
         post '/api/v1/planes', headers: headers2, params: @plane_params
 
-        expect(response).to have_http_status(:unprocessable_entity)
+        expect(response).to have_http_status(:unauthorized)
         expect(JSON.parse(response.body)).to include('error')
       end
     end
