@@ -99,4 +99,28 @@ RSpec.describe 'Api::V1::Planes', type: :request do
       end
     end
   end
+
+  describe 'GET /api/v1/planes/1' do
+    let!(:user) { create(:user) }
+    let!(:plane) { create(:plane) }
+
+    context 'when authenticated' do
+      before do
+        headers = { 'Authorization' => "Bearer #{token(user)}" }
+        get "/api/v1/planes/#{plane.id}", headers:
+      end
+
+      it 'returns a successful response' do
+        expect(response).to have_http_status(:success)
+      end
+    end
+
+    context 'when not authenticated' do
+      before { get '/api/v1/planes/1' }
+
+      it 'returns an unauthorized response' do
+        expect(response).to have_http_status(:unauthorized)
+      end
+    end
+  end
 end
