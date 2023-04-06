@@ -19,7 +19,7 @@ class Api::V1::PlanesReservationsController < ApplicationController
   end
 
   def destroy
-    @reservation = PlaneReservation.find(params.permit(:id))
+    @reservation = PlaneReservation.find(params[:id])
 
     if @reservation.destroy
       render json: { message: 'Reservation deleted successfully' }, status: :no_content

@@ -62,4 +62,33 @@ RSpec.describe 'Api::V1::PlanesReservations', type: :request do
       end
     end
   end
+
+  describe 'DELETE /api/v1/planes_reservations' do
+    before do
+      @user = create(:user) # Create a user with the ID of 1 as admin
+      @plane = create(:plane)
+      @reservation = PlaneReservation.create({ date: Date.today,
+                                               start_time: Time.now,
+                                               end_time: Time.now + 2.hours, user_id: @user.id,
+                                               plane_id: @plane.id })
+    end
+
+    context 'when authenticated' do
+      let(:headers) { { 'Authorization' => "Bearer #{token(@user)}" } }
+
+      it 'deletes a reservation' do
+        delete("/api/v1/planes_reservations/#{@reservation.id}", headers:)
+
+        expect(response).to have_http_status(:no_content)
+      end
+    end
+
+    context 'when not authenticated' do
+      it 'deletes a plan' do
+        delete '/api/v1/planes_reservations/1'
+
+        expect(response).to have_http_status(:unauthorized)
+      end
+    end
+  end
 end
