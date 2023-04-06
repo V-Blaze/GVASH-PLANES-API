@@ -1,6 +1,4 @@
 class ApplicationController < ActionController::API
-  include JsonWebToken
-
   before_action :authenticate_request
 
   private
