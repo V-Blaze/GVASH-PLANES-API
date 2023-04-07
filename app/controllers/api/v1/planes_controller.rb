@@ -16,7 +16,7 @@ class Api::V1::PlanesController < ApplicationController
     @plane.user = @current_user
 
     if @plane.save
-      render json: { plane: @plane, message: 'Plane created successfully' }, status: :created
+      render json: { planeID: @plane.id, message: 'Plane created successfully' }, status: :created
     else
       render json: { errors: @plane.errors.full_messages }, status: :unprocessable_entity
     end

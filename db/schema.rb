@@ -35,7 +35,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_04_141831) do
     t.integer "price"
     t.string "model"
     t.date "year_of_manufacture"
-    t.time "life_span"
+    t.string "life_span"
     t.float "fees"
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false

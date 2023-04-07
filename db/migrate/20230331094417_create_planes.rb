@@ -9,7 +9,7 @@ class CreatePlanes < ActiveRecord::Migration[7.0]
       t.integer :price
       t.string :model
       t.date :year_of_manufacture
-      t.time :life_span
+      t.string :life_span
       t.float :fees
 
       t.references :user, null: false, foreign_key: true
