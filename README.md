@@ -89,7 +89,7 @@ To get a local copy up and running, follow these steps.
 In order to run this project you need:
 
 ```sh
- gem install rails
+ gem install
 ```
 
 ### Setup
@@ -108,7 +108,7 @@ Clone Another repository for frontend(`React`). [Project](https://github.com/V-B
 
 ### Install
 
-Install this project with:
+Install Rails Project with:
 
 ```sh
   cd GVASH-PLANES-API
