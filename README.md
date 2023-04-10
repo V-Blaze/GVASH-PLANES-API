@@ -31,7 +31,10 @@
 
 > GVASH PLANES is a rails application where you can book planes. This app is created using `Rails` as an api and `React` as frontend with 5 people.
 
-## 🛠 Built With <a name="built-with"></a>
+## 🛠 Project Links
+
+- [Frontend](https://github.com/V-Blaze/gvash-planes)
+- [Backend](https://github.com/V-Blaze/GVASH-PLANES-API)
 
 ### Tech Stack <a name="tech-stack"></a>
 
