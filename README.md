@@ -34,8 +34,8 @@
 
 ## 🛠 Project Links
 
-- [Frontend](https://github.com/V-Blaze/gvash-planes)
-- [Backend](https://github.com/V-Blaze/GVASH-PLANES-API)
+- [Frontend Repository](https://github.com/V-Blaze/gvash-planes)
+- [Backend Repository](https://github.com/V-Blaze/GVASH-PLANES-API)
 
 ### Tech Stack <a name="tech-stack"></a>
 
@@ -85,8 +85,8 @@
 
 ## 🚀 Live Demo <a name="live-demo"></a>
 
-[Frontend](https://gvash-planes.vercel.app/)
-[Backend](https://gvash-planes.onrender.com/)
+- [Frontend Deployed Link](https://gvash-planes.vercel.app/)
+- [Backend Deployed Link](https://gvash-planes.onrender.com/)
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- GETTING STARTED -->
@@ -150,6 +150,16 @@ For the React project,
    npm install
    npm start
 ```
+
+### Authentication
+
+ if you wanna login as admin, you have to use the following credientials, please make sure to run above commands
+
+```sh
+email: user@example.com
+password: password
+```
+
 
 ### Run tests
 
