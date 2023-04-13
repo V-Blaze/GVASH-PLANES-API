@@ -90,6 +90,7 @@ test:
 #
 production:
   <<: *default
+  url: <%= ENV["DATABASE_URL"] %>
   database: GVASH_PLANES_API_production
   username: GVASH_PLANES_API
   password: <%= ENV["GVASH_PLANES_API_DATABASE_PASSWORD"] %>

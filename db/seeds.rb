@@ -37,7 +37,7 @@ planes = [
     price: 1000000,
     model: "747-400",
     year_of_manufacture: Date.new(1999, 1, 1),
-    life_span: Time.now + 10.years,
+    life_span: "10 years",
     fees: 1000.0,
     user_id: 1
     },
@@ -49,7 +49,7 @@ planes = [
     price: 50000,
     model: "172N",
     year_of_manufacture: Date.new(1985, 1, 1),
-    life_span: Time.now + 5.years,
+    life_span: "5 years",
     fees: 500.0,
     user_id: 1
   },
@@ -61,7 +61,7 @@ planes = [
     price: 50000,
     model: "PA-28-181 Archer III",
     year_of_manufacture: Date.new(2019, 1, 1),
-    life_span: Time.now + 5.years,
+    life_span: '25 years',
     fees: 500.0,
     user_id: 1
   },
@@ -73,7 +73,7 @@ planes = [
     price: 50000,
     model: "PA-28-181 Archer III",
     year_of_manufacture: Date.new(2022, 1, 1),
-    life_span: Time.now + 5.years,
+    life_span: "30 years",
     fees: 500.0,
     user_id: 1
   },
@@ -85,7 +85,7 @@ planes = [
     price: 50000,
     model: "PA-28-181 Archer III",
     year_of_manufacture: Date.new(2023, 1, 1),
-    life_span: Time.now + 5.years,
+    life_span: "20 years",
     fees: 500.0,
     user_id: 1
   },
@@ -97,7 +97,7 @@ planes = [
     price: 50000,
     model: "PA-28-181 Archer III",
     year_of_manufacture: Date.new(2009, 1, 1),
-    life_span: Time.now + 5.years,
+    life_span: "20 Years",
     fees: 500.0,
     user_id: 1
   }
@@ -107,13 +107,13 @@ planes.each do |plane|
 end
 
 
-6.times do |i|
-  PlaneReservation.create({ date: Date.today,
-  start_time: Time.now,
-  end_time: Time.now + 2.hours, user_id: 2,
-  duration: 10,
-  plane_id: i })
-end
+# 6.times do |i|
+#   PlaneReservation.create({ date: Date.today,
+#   start_time: Time.now,
+#   end_time: Time.now + 2.hours, user_id: 2,
+#   duration: 10,
+#   plane_id: i })
+# end
 
 puts "Done seeding database"
 
