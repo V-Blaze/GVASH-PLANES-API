@@ -65,4 +65,4 @@ gem 'faker'
 
 gem 'dotenv-rails', '~> 2.1', '>= 2.1.1'
 
-# gem 'webpacker'
+gem 'webpacker'
