@@ -24,9 +24,9 @@ default: &default
 development:
   <<: *default
   database: GVASH_PLANES_API_development
-  host: <%= ENV["POSTGRESQL_ADDRESS"]%>
-  username: <%= ENV["DEVELOPMENT_DATABASE_USERNAME"]%>
-  password: <%= ENV["DEVELOPMENT_DATABASE_PASSWORD"]%>
+  host: localhost
+  username: sam
+  password: sam
 
 
 
@@ -63,9 +63,9 @@ development:
 test:
   <<: *default
   database: GVASH_PLANES_API_test
-  host: <%= ENV["POSTGRESQL_ADDRESS"]%>
-  username: <%= ENV["DEVELOPMENT_DATABASE_USERNAME"]%>
-  password: <%= ENV["DEVELOPMENT_DATABASE_PASSWORD"]%>
+  # host: <%= ENV["POSTGRESQL_ADDRESS"]%>
+  username: sam
+  password: sam
 
 
 # As with config/credentials.yml, you never want to store sensitive information,
