@@ -9,6 +9,7 @@
   - [🛠 Built With](#built-with)
     - [Tech Stack](#tech-stack)
     - [Key Features](#key-features)
+  - [Kanban Board](#kanban-board)
   - [🚀 Live Demo](#live-demo)
 - [💻 Getting Started](#getting-started)
   - [Setup](#setup)
@@ -72,7 +73,7 @@
 
 <!-- Kanban Board -->
 
-## 🚀 Kanban Board <a name="kanban-board"></a>
+## Kanban Board <a name="kanban-board"></a>
 
 - [Kanban-Board](https://github.com/users/V-Blaze/projects/4/views/1?layout=board)
 - [Kanban-Board initial screenshot](https://user-images.githubusercontent.com/29674658/228588538-cdaa7ccd-9f87-49f8-b60c-266db3183e60.png)
