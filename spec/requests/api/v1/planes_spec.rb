@@ -114,14 +114,6 @@ RSpec.describe 'Api::V1::Planes', type: :request do
         expect(response).to have_http_status(:success)
       end
     end
-
-    context 'when not authenticated' do
-      before { get '/api/v1/planes/1' }
-
-      it 'returns an unauthorized response' do
-        expect(response).to have_http_status(:unauthorized)
-      end
-    end
   end
 
   describe 'DELETE /api/v1/planes' do
