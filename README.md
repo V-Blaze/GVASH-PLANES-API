@@ -70,6 +70,16 @@
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
+<!-- Kanban Board -->
+
+## 🚀 Kanban Board <a name="kanban-board"></a>
+
+- [Kanban-Board](https://github.com/users/V-Blaze/projects/4/views/1?layout=board)
+- [Kanban-Board initial screenshot](https://user-images.githubusercontent.com/29674658/228588538-cdaa7ccd-9f87-49f8-b60c-266db3183e60.png)
+- At the end of this project, we are still 5 members: @Samuellekpor, @ginabeki, @Abdessittir, @heintayzar-hm, and @V-Blaze. 
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
 <!-- LIVE DEMO -->
 
 ## 🚀 Live Demo <a name="live-demo"></a>
@@ -148,7 +158,7 @@ To run tests, run the following command:
 rspec spec --format documentation
 ```
 
-## 👥 Author <a name="authors"></a>
+## 👥 Authors <a name="authors"></a>
 
 👤 **Hein Tay Zar**
 
