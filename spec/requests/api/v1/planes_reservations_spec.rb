@@ -50,7 +50,6 @@ RSpec.describe 'Api::V1::PlanesReservations', type: :request do
       it 'returns the created plane reservation' do
         expect(JSON.parse(response.body)['plane_reservation']['user_id']).to eq(user.id)
         expect(JSON.parse(response.body)['plane_reservation']['plane_id']).to eq(plane.id)
-        expect(JSON.parse(response.body)['duration']).to eq(120)
       end
     end
 

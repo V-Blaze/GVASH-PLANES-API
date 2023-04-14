@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   post 'auth/login', to: 'authentication#login' , as: 'login'
   namespace :api do
     namespace :v1 do
-      resources :planes
+      resources :planes, only: [:index, :create, :show, :destroy]
       resources :planes_reservations, only: [:index, :create, :destroy]
     end
   end
